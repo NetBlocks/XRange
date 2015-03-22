@@ -1,0 +1,690 @@
+# depslib dependency file v1.0
+1423473724 source:c:\vcomport\spl\src\misc.c
+	"misc.h"
+
+1423473724 c:\vcomport\spl\inc\misc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\inc\stm32l1xx.h
+	"core_cm3.h"
+	"system_stm32l1xx.h"
+	<stdint.h>
+	"stm32l1xx_conf.h"
+
+1423473724 c:\vcomport\cmsis\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1423473724 c:\vcomport\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1423473724 c:\vcomport\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1423473724 c:\vcomport\inc\system_stm32l1xx.h
+
+1423473724 c:\vcomport\inc\stm32l1xx_conf.h
+	"stm32l1xx_adc.h"
+	"stm32l1xx_aes.h"
+	"stm32l1xx_comp.h"
+	"stm32l1xx_crc.h"
+	"stm32l1xx_dac.h"
+	"stm32l1xx_dbgmcu.h"
+	"stm32l1xx_dma.h"
+	"stm32l1xx_exti.h"
+	"stm32l1xx_flash.h"
+	"stm32l1xx_fsmc.h"
+	"stm32l1xx_gpio.h"
+	"stm32l1xx_i2c.h"
+	"stm32l1xx_iwdg.h"
+	"stm32l1xx_lcd.h"
+	"stm32l1xx_opamp.h"
+	"stm32l1xx_pwr.h"
+	"stm32l1xx_rcc.h"
+	"stm32l1xx_rtc.h"
+	"stm32l1xx_sdio.h"
+	"stm32l1xx_spi.h"
+	"stm32l1xx_syscfg.h"
+	"stm32l1xx_tim.h"
+	"stm32l1xx_usart.h"
+	"stm32l1xx_wwdg.h"
+	"misc.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_adc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_aes.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_comp.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_crc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_dac.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_dbgmcu.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_dma.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_exti.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_flash.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_fsmc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_gpio.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_i2c.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_iwdg.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_lcd.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_opamp.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_pwr.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_rcc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_rtc.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_sdio.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_spi.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_syscfg.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_tim.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_usart.h
+	"stm32l1xx.h"
+
+1423473724 c:\vcomport\spl\inc\stm32l1xx_wwdg.h
+	"stm32l1xx.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_adc.c
+	"stm32l1xx_adc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_aes.c
+	"stm32l1xx_aes.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_aes_util.c
+	"stm32l1xx_aes.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_comp.c
+	"stm32l1xx_comp.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_crc.c
+	"stm32l1xx_crc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_dac.c
+	"stm32l1xx_dac.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_dbgmcu.c
+	"stm32l1xx_dbgmcu.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_dma.c
+	"stm32l1xx_dma.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_exti.c
+	"stm32l1xx_exti.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_flash.c
+	"stm32l1xx_flash.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_flash_ramfunc.c
+	"stm32l1xx_flash.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_fsmc.c
+	"stm32l1xx_fsmc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_gpio.c
+	"stm32l1xx_gpio.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_i2c.c
+	"stm32l1xx_i2c.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_iwdg.c
+	"stm32l1xx_iwdg.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_lcd.c
+	"stm32l1xx_lcd.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_opamp.c
+	"stm32l1xx_opamp.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_pwr.c
+	"stm32l1xx_pwr.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_rcc.c
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_rtc.c
+	"stm32l1xx_rtc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_sdio.c
+	"stm32l1xx_sdio.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_spi.c
+	"stm32l1xx_spi.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_syscfg.c
+	"stm32l1xx_syscfg.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_tim.c
+	"stm32l1xx_tim.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_usart.c
+	"stm32l1xx_usart.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\vcomport\spl\src\stm32l1xx_wwdg.c
+	"stm32l1xx_wwdg.h"
+	"stm32l1xx_rcc.h"
+
+1358792851 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_core.c
+	"usb_lib.h"
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_lib.h
+	"hw_config.h"
+	"usb_type.h"
+	"usb_regs.h"
+	"usb_def.h"
+	"usb_core.h"
+	"usb_init.h"
+	"usb_sil.h"
+	"usb_mem.h"
+	"usb_int.h"
+
+1358792830 c:\vcomport\inc\hw_config.h
+	"platform_config.h"
+	"usb_type.h"
+
+1423474250 c:\vcomport\inc\platform_config.h
+	"stm32l1xx.h"
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_type.h
+	"usb_conf.h"
+
+1358792830 c:\vcomport\inc\usb_conf.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_regs.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_def.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_core.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_init.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_sil.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_mem.h
+
+1358792851 c:\vcomport\stm32_usb-fs-device_driver\inc\usb_int.h
+
+1358792851 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_init.c
+	"usb_lib.h"
+
+1358792851 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_int.c
+	"usb_lib.h"
+
+1358792851 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_mem.c
+	"usb_lib.h"
+
+1358792851 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_regs.c
+	"usb_lib.h"
+
+1358792850 source:c:\vcomport\stm32_usb-fs-device_driver\src\usb_sil.c
+	"usb_lib.h"
+
+1358792829 source:c:\vcomport\src\main.c
+	"hw_config.h"
+	"usb_lib.h"
+	"usb_desc.h"
+	"usb_pwr.h"
+
+1358792830 c:\vcomport\inc\usb_desc.h
+
+1358792830 c:\vcomport\inc\usb_pwr.h
+
+1423474356 source:c:\vcomport\src\hw_config.c
+	"stm32_it.h"
+	"usb_lib.h"
+	"usb_prop.h"
+	"usb_desc.h"
+	"hw_config.h"
+	"usb_pwr.h"
+
+1358792830 c:\vcomport\inc\stm32_it.h
+	"platform_config.h"
+
+1358792829 c:\vcomport\inc\usb_prop.h
+
+1423473724 source:c:\vcomport\src\main_old.c
+	"stm32l1xx_conf.h"
+
+1358792829 source:c:\vcomport\src\stm32_it.c
+	"hw_config.h"
+	"stm32_it.h"
+	"usb_lib.h"
+	"usb_istr.h"
+
+1358792829 c:\vcomport\inc\usb_istr.h
+	"usb_conf.h"
+
+1423473724 source:c:\vcomport\src\system_stm32l1xx.c
+	"stm32l1xx.h"
+
+1358792829 source:c:\vcomport\src\usb_desc.c
+	"usb_lib.h"
+	"usb_desc.h"
+
+1358792829 source:c:\vcomport\src\usb_endp.c
+	"usb_lib.h"
+	"usb_desc.h"
+	"usb_mem.h"
+	"hw_config.h"
+	"usb_istr.h"
+	"usb_pwr.h"
+
+1358792829 source:c:\vcomport\src\usb_istr.c
+	"usb_lib.h"
+	"usb_prop.h"
+	"usb_pwr.h"
+	"usb_istr.h"
+
+1358792829 source:c:\vcomport\src\usb_prop.c
+	"usb_lib.h"
+	"usb_conf.h"
+	"usb_prop.h"
+	"usb_desc.h"
+	"usb_pwr.h"
+	"hw_config.h"
+
+1358792829 source:c:\vcomport\src\usb_pwr.c
+	"usb_lib.h"
+	"usb_conf.h"
+	"usb_pwr.h"
+	"hw_config.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\misc.c
+	"misc.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\misc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\inc\stm32l1xx.h
+	"core_cm3.h"
+	"system_stm32l1xx.h"
+	<stdint.h>
+	"stm32l1xx_conf.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\cmsis\core_cm3.h
+	<stdint.h>
+	<core_cmInstr.h>
+	<core_cmFunc.h>
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\cmsis\core_cminstr.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\cmsis\core_cmfunc.h
+	<cmsis_iar.h>
+	<cmsis_ccs.h>
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\inc\system_stm32l1xx.h
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\inc\stm32l1xx_conf.h
+	"stm32l1xx_adc.h"
+	"stm32l1xx_aes.h"
+	"stm32l1xx_comp.h"
+	"stm32l1xx_crc.h"
+	"stm32l1xx_dac.h"
+	"stm32l1xx_dbgmcu.h"
+	"stm32l1xx_dma.h"
+	"stm32l1xx_exti.h"
+	"stm32l1xx_flash.h"
+	"stm32l1xx_fsmc.h"
+	"stm32l1xx_gpio.h"
+	"stm32l1xx_i2c.h"
+	"stm32l1xx_iwdg.h"
+	"stm32l1xx_lcd.h"
+	"stm32l1xx_opamp.h"
+	"stm32l1xx_pwr.h"
+	"stm32l1xx_rcc.h"
+	"stm32l1xx_rtc.h"
+	"stm32l1xx_sdio.h"
+	"stm32l1xx_spi.h"
+	"stm32l1xx_syscfg.h"
+	"stm32l1xx_tim.h"
+	"stm32l1xx_usart.h"
+	"stm32l1xx_wwdg.h"
+	"misc.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_adc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_aes.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_comp.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_crc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_dac.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_dbgmcu.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_dma.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_exti.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_flash.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_fsmc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_gpio.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_i2c.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_iwdg.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_lcd.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_opamp.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_pwr.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_rcc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_rtc.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_sdio.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_spi.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_syscfg.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_tim.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_usart.h
+	"stm32l1xx.h"
+
+1423473724 c:\users\mp\documents\netblocks\fimware\vcomport\spl\inc\stm32l1xx_wwdg.h
+	"stm32l1xx.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_adc.c
+	"stm32l1xx_adc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_aes.c
+	"stm32l1xx_aes.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_aes_util.c
+	"stm32l1xx_aes.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_comp.c
+	"stm32l1xx_comp.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_crc.c
+	"stm32l1xx_crc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_dac.c
+	"stm32l1xx_dac.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_dbgmcu.c
+	"stm32l1xx_dbgmcu.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_dma.c
+	"stm32l1xx_dma.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_exti.c
+	"stm32l1xx_exti.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_flash.c
+	"stm32l1xx_flash.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_flash_ramfunc.c
+	"stm32l1xx_flash.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_fsmc.c
+	"stm32l1xx_fsmc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_gpio.c
+	"stm32l1xx_gpio.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_i2c.c
+	"stm32l1xx_i2c.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_iwdg.c
+	"stm32l1xx_iwdg.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_lcd.c
+	"stm32l1xx_lcd.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_opamp.c
+	"stm32l1xx_opamp.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_pwr.c
+	"stm32l1xx_pwr.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_rcc.c
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_rtc.c
+	"stm32l1xx_rtc.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_sdio.c
+	"stm32l1xx_sdio.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_spi.c
+	"stm32l1xx_spi.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_syscfg.c
+	"stm32l1xx_syscfg.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_tim.c
+	"stm32l1xx_tim.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_usart.c
+	"stm32l1xx_usart.h"
+	"stm32l1xx_rcc.h"
+
+1423473724 source:c:\users\mp\documents\netblocks\fimware\vcomport\spl\src\stm32l1xx_wwdg.c
+	"stm32l1xx_wwdg.h"
+	"stm32l1xx_rcc.h"
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_core.c
+	"usb_lib.h"
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_lib.h
+	"hw_config.h"
+	"usb_type.h"
+	"usb_regs.h"
+	"usb_def.h"
+	"usb_core.h"
+	"usb_init.h"
+	"usb_sil.h"
+	"usb_mem.h"
+	"usb_int.h"
+
+1358792830 c:\users\mp\documents\netblocks\fimware\vcomport\inc\hw_config.h
+	"platform_config.h"
+	"usb_type.h"
+
+1423474250 c:\users\mp\documents\netblocks\fimware\vcomport\inc\platform_config.h
+	"stm32l1xx.h"
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_type.h
+	"usb_conf.h"
+
+1358792830 c:\users\mp\documents\netblocks\fimware\vcomport\inc\usb_conf.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_regs.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_def.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_core.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_init.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_sil.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_mem.h
+
+1358792850 c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\inc\usb_int.h
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_init.c
+	"usb_lib.h"
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_int.c
+	"usb_lib.h"
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_mem.c
+	"usb_lib.h"
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_regs.c
+	"usb_lib.h"
+
+1358792850 source:c:\users\mp\documents\netblocks\fimware\vcomport\stm32_usb-fs-device_driver\src\usb_sil.c
+	"usb_lib.h"
+
+1423474356 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\hw_config.c
+	"stm32_it.h"
+	"usb_lib.h"
+	"usb_prop.h"
+	"usb_desc.h"
+	"hw_config.h"
+	"usb_pwr.h"
+
+1358792830 c:\users\mp\documents\netblocks\fimware\vcomport\inc\stm32_it.h
+	"platform_config.h"
+
+1358792828 c:\users\mp\documents\netblocks\fimware\vcomport\inc\usb_prop.h
+
+1358792830 c:\users\mp\documents\netblocks\fimware\vcomport\inc\usb_desc.h
+
+1358792830 c:\users\mp\documents\netblocks\fimware\vcomport\inc\usb_pwr.h
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\main.c
+	"hw_config.h"
+	"usb_lib.h"
+	"usb_desc.h"
+	"usb_pwr.h"
+
+1423469276 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\startup_stm32l1xx_mdp.s
+
+1427014192 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\stm32_it.c
+	"hw_config.h"
+	"stm32_it.h"
+	"usb_lib.h"
+	"usb_istr.h"
+
+1358792828 c:\users\mp\documents\netblocks\fimware\vcomport\inc\usb_istr.h
+	"usb_conf.h"
+
+1427015458 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\system_stm32l1xx.c
+	"stm32l1xx.h"
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\usb_desc.c
+	"usb_lib.h"
+	"usb_desc.h"
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\usb_endp.c
+	"usb_lib.h"
+	"usb_desc.h"
+	"usb_mem.h"
+	"hw_config.h"
+	"usb_istr.h"
+	"usb_pwr.h"
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\usb_istr.c
+	"usb_lib.h"
+	"usb_prop.h"
+	"usb_pwr.h"
+	"usb_istr.h"
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\usb_prop.c
+	"usb_lib.h"
+	"usb_conf.h"
+	"usb_prop.h"
+	"usb_desc.h"
+	"usb_pwr.h"
+	"hw_config.h"
+
+1358792828 source:c:\users\mp\documents\netblocks\fimware\vcomport\src\usb_pwr.c
+	"usb_lib.h"
+	"usb_conf.h"
+	"usb_pwr.h"
+	"hw_config.h"
+

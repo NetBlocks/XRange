@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_project_file>
+	<EmBlocksVersion release="2.30" revision="1" />
+	<FileVersion major="1" minor="0" />
+	<Project>
+		<Option title="VComPort" />
+		<Option pch_mode="2" />
+		<Option compiler="armgcc_eb" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin\Debug\VComPort.elf" />
+				<Option object_output="obj\Debug\" />
+				<Option type="0" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-g3" />
+					<Add option="-O0" />
+					<Add option="-Wall" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Compiler>
+				<Assembler>
+					<Add option="-Wa,--gdwarf-2" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin\Release\VComPort.elf" />
+				<Option object_output="obj\Release\" />
+				<Option type="0" />
+				<Option create_hex="1" />
+				<Option compiler="armgcc_eb" />
+				<Option projectDeviceOptionsRelation="0" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-g2" />
+					<Add option="-fdata-sections" />
+					<Add option="-ffunction-sections" />
+				</Compiler>
+				<Assembler>
+					<Add option="-Wa,--no-warn" />
+				</Assembler>
+				<Linker>
+					<Add option="-Wl,--gc-sections" />
+				</Linker>
+			</Target>
+		</Build>
+		<Device>
+			<Add option="$device=cortex-m3" />
+			<Add option="$stack=0x0100" />
+			<Add option="$heap=0x0000" />
+			<Add option="$lscript=./stm32l151cc_flash.ld" />
+		</Device>
+		<Compiler>
+			<Add option="-mfloat-abi=soft" />
+			<Add option="-DSTM32L151CC" />
+			<Add option="-fno-strict-aliasing" />
+			<Add option="-DSTM32L1XX_MDP" />
+			<Add option="-DUSE_STDPERIPH_DRIVER" />
+			<Add directory=".\inc" />
+			<Add directory=".\src" />
+			<Add directory=".\cmsis" />
+			<Add directory=".\SPL\inc" />
+			<Add directory=".\SPL\src" />
+		</Compiler>
+		<Linker>
+			<Add option="-eb_start_files" />
+			<Add option="-eb_lib=n" />
+		</Linker>
+		<Unit filename="..\SPL\inc\misc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_adc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_aes.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_comp.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_crc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_dac.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_dbgmcu.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_dma.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_exti.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_flash.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_fsmc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_gpio.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_i2c.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_iwdg.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_lcd.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_opamp.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_pwr.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_rcc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_rtc.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_sdio.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_spi.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_syscfg.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_tim.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_usart.h" />
+		<Unit filename="..\SPL\inc\stm32l1xx_wwdg.h" />
+		<Unit filename="..\SPL\src\misc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_adc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_aes.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_aes_util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_comp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_crc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_dac.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_dbgmcu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_exti.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_flash.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_flash_ramfunc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_fsmc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_gpio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_i2c.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_iwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_lcd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_opamp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_rcc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_rtc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_sdio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_spi.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_syscfg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_tim.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_usart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\SPL\src\stm32l1xx_wwdg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_core.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_def.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_init.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_int.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_lib.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_mem.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_regs.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_sil.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\inc\usb_type.h" />
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_core.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_init.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_int.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_mem.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_regs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\STM32_USB-FS-Device_Driver\src\usb_sil.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="startup_stm32l1xx_mdp.S">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\inc\hw_config.h" />
+		<Unit filename="..\inc\platform_config.h" />
+		<Unit filename="..\inc\stm32_it.h" />
+		<Unit filename="..\inc\stm32l1xx.h" />
+		<Unit filename="..\inc\stm32l1xx_conf.h" />
+		<Unit filename="..\inc\system_stm32l1xx.h" />
+		<Unit filename="..\inc\usb_conf.h" />
+		<Unit filename="..\inc\usb_desc.h" />
+		<Unit filename="..\inc\usb_istr.h" />
+		<Unit filename="..\inc\usb_prop.h" />
+		<Unit filename="..\inc\usb_pwr.h" />
+		<Unit filename="..\src\hw_config.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\stm32_it.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\system_stm32l1xx.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\usb_desc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\usb_endp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\usb_istr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\usb_prop.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="..\src\usb_pwr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger>
+				<target_debugging_settings target="Release" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBLOCKS}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+				<target_debugging_settings target="Debug" active_interface="ST-link">
+					<debug_interface interface_id="ST-link" ip_address="localhost" ip_port="4242" path="${EMBLOCKS}\share\contrib" executable="STLinkGDB.exe" description="" dont_start_server="false" backoff_time="1000" options="0" reg_filter="0" active_family="STMicroelectronics">
+						<family_options family_id="STMicroelectronics">
+							<option opt_id="ID_JTAG_SWD" opt_value="swd" />
+							<option opt_id="ID_VECTOR_START" opt_value="0x08000000" />
+							<option opt_id="ID_RESET_TYPE" opt_value="System" />
+							<option opt_id="ID_LOAD_PROGRAM" opt_value="1" />
+							<option opt_id="ID_SEMIHOST_CHECK" opt_value="0" />
+							<option opt_id="ID_RAM_EXEC" opt_value="0" />
+							<option opt_id="ID_VEC_TABLE" opt_value="1" />
+							<option opt_id="ID_DONT_CONN_RESET" opt_value="0" />
+							<option opt_id="ID_ALL_MODE_DEBUG" opt_value="0" />
+							<option opt_id="ID_DEV_ADDR" opt_value="" />
+							<option opt_id="ID_VERBOSE_LEVEL" opt_value="3" />
+						</family_options>
+					</debug_interface>
+				</target_debugging_settings>
+			</debugger>
+			<envvars />
+		</Extensions>
+	</Project>
+</EmBlocks_project_file>
