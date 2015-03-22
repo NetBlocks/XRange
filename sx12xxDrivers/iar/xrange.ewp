@@ -2018,6 +2018,9 @@
       <name>$PROJ_DIR$\..\src\xrange\spi.c</name>
     </file>
     <file>
+      <name>$PROJ_DIR$\startup_stm32l152xc.s</name>
+    </file>
+    <file>
       <name>$PROJ_DIR$\..\src\xrange\stm32fxxx_it.c</name>
     </file>
     <file>
