@@ -34,3 +34,4 @@ tLoRaSettings LoRaSettings =
 The application can be build with: 
 1. Keil MDK with project file from XRange\sx12xxDrivers\keil
 2. EmBlocks Free IDE http://www.emblocks.org/ with project file from \XRange\sx12xxDrivers\emblocks
+3. IAR Embedded Workbench XRange\sx12xxDrivers\iar
