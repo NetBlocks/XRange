@@ -1,7 +1,12 @@
+/*
+ * www.netblocks.eu
+ * XRange sx1272 LoRa RF module
+ * Data sheet at www.netblocks.eu/xrange-sx1272-lora-datasheet/
+ */
+
+
 #ifndef __LED_H__
 #define __LED_H__
-
-
 
 #define LED_INV                                     0
 

@@ -1,3 +1,9 @@
+/*
+ * www.netblocks.eu
+ * XRange sx1272 LoRa RF module
+ * Data sheet at www.netblocks.eu/xrange-sx1272-lora-datasheet/
+ */
+
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>

@@ -1,3 +1,9 @@
+/*
+ * www.netblocks.eu
+ * XRange sx1272 LoRa RF module
+ * Data sheet at www.netblocks.eu/xrange-sx1272-lora-datasheet/
+ */
+
 #ifndef __XRANGE_HAL_H__
 #define __XRANGE_HAL_H__
 
