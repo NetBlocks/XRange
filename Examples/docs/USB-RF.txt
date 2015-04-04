@@ -1,0 +1,55 @@
+=============================
+USB-RF application
+=============================
+www.netblocks.eu
+XRange sx1272 LoRa RF module
+Data sheet at www.netblocks.eu/xrange-sx1272-lora-datasheet/
+
+USB-RF application implements USB Virtual COM Port which sends and receive data by sx1272 LoRa RF modem.
+
+1. Connect XRange module to USB. Install STM32 Virtual COM Port Driver from http://www.st.com/st-web-ui/active/en/catalog/tools/PF257938#
+2. Connect second XRange module.
+3. Obtain the Virtual COM Ports designations from Device Manager.
+for example:
+- STMicroelectronics Virtual COM Port (COM30)
+- STMicroelectronics Virtual COM Port (COM31) 
+
+4. Run serial terminal program and connect to COM30, run another instance of terminal program and connect to COM31.
+5. When you send any data to one Virtual COM Port other one will receive the data.
+  
+In case you do not have serial terminal you can use PuTTY.
+http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html
+
+
+Default setting are 
+- RF Frequency 870Mhz
+- LoRa modulation
+- SpreadingFactor :7
+- SignalBw 500Khz
+ 
+The settings can be changed in file main.c 
+
+tLoRaSettings LoRaSettings =
+{
+    870000000,        // RFFrequency
+    20,               // Power
+    2,                // SignalBw [0: 125 kHz, 1: 250 kHz, 2: 500 kHz, 3: Reserved]
+    7,
+	2,                // SpreadingFactor [6: 64, 7: 128, 8: 256, 9: 512, 10: 1024, 11: 2048, 12: 4096  chips]
+    4,                // ErrorCoding [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]
+    true,             // CrcOn [0: OFF, 1: ON]
+    false,            // ImplicitHeaderOn [0: OFF, 1: ON]
+    1,                // RxSingleOn [0: Continuous, 1 Single]
+    0,                // FreqHopOn [0: OFF, 1: ON]
+    4,                // HopPeriod Hops every frequency hopping period symbols
+    500,              // TxPacketTimeout
+    1200,              // RxPacketTimeout
+    128,              // PayloadLength (used for implicit header mode)
+};
+
+
+The application can be build with: 
+1. Keil MDK with project file from XRange\Examples\keil\USB-RF
+2. EmBlocks Free IDE http://www.emblocks.org/ with project file from \XRange\Examples\emblocks\USB-RF
+3. IAR Embedded Workbench XRange\Examples\iar\USB-RF
+

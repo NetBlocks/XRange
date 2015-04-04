@@ -1,0 +1,40 @@
+=============================
+Ping-Pong application
+=============================
+www.netblocks.eu
+XRange sx1272 LoRa RF module
+Data sheet at www.netblocks.eu/xrange-sx1272-lora-datasheet/
+
+This demo application demonstrats simple Tx/Rx between two XRange boards.
+The application toggle PA7 on Rx and PA8 on Tx.
+
+Default setting are 
+- RF Frequency 870Mhz
+- LoRa modulation
+- SpreadingFactor :12
+- SignalBw 125Khz
+ 
+The settings can be changed in file sx1272-LoRa.c 
+
+tLoRaSettings LoRaSettings =
+{
+    870000000,        // RFFrequency
+    20,               // Power
+    0,                // SignalBw [0: 125 kHz, 1: 250 kHz, 2: 500 kHz, 3: Reserved]
+    12,                // SpreadingFactor [6: 64, 7: 128, 8: 256, 9: 512, 10: 1024, 11: 2048, 12: 4096  chips]
+    4,                // ErrorCoding [1: 4/5, 2: 4/6, 3: 4/7, 4: 4/8]
+    true,             // CrcOn [0: OFF, 1: ON]
+    false,            // ImplicitHeaderOn [0: OFF, 1: ON]
+    1,                // RxSingleOn [0: Continuous, 1 Single]
+    0,                // FreqHopOn [0: OFF, 1: ON]
+    4,                // HopPeriod Hops every frequency hopping period symbols
+    500,              // TxPacketTimeout
+    1200,              // RxPacketTimeout
+    128,              // PayloadLength (used for implicit header mode)
+};
+
+
+The application can be build with: 
+1. Keil MDK with project file from XRange\Examples\keil\ping-pong
+2. EmBlocks Free IDE http://www.emblocks.org/ with project file from \XRange\Examples\emblocks\ping-pong
+3. IAR Embedded Workbench XRange\Examples\iar\ping-pong

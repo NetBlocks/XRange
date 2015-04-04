@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBlocks_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="..\..\apps\USB-RF\main.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1182" topLine="33" />
+		</Cursor>
+	</File>
+	<File name="..\..\src\radio\radio.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="776" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="..\..\src\startup_stm32l1xx_mdp.S" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1947" topLine="30" />
+		</Cursor>
+	</File>
+	<File name="..\..\src\system_stm32l1xx.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1401" topLine="326" />
+		</Cursor>
+	</File>
+	<File name="..\..\src\xrange\stm32fxxx_it.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="164" />
+		</Cursor>
+	</File>
+	<File name="..\..\src\xrange\sx1272-Hal.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="..\..\usb\src\usb_istr.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1268" topLine="140" />
+		</Cursor>
+	</File>
+	<File name="..\..\usb\src\usb_it.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1352" topLine="34" />
+		</Cursor>
+	</File>
+</EmBlocks_layout_file>
