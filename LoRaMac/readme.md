@@ -6,6 +6,10 @@
         (C)2013 Semtech
 
 SX1272/76 radio drivers plus Ping-Pong firmware and LoRaWAN node firmware implementation.
+
+Maintainers: www.netblocks.eu
+SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
+
 =====================================
 
 1. Introduction
