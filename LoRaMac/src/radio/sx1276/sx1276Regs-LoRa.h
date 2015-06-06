@@ -4,7 +4,7 @@
  \____ \| ___ |    (_   _) ___ |/ ___)  _ \
  _____) ) ____| | | || |_| ____( (___| | | |
 (______/|_____)_|_|_| \__)_____)\____)_| |_|
-    ©2013 Semtech
+    (C)2013 Semtech
 
 Description: SX1276 LoRa modem registers and bits definitions
 
@@ -66,6 +66,8 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define REG_LR_DETECTOPTIMIZE                       0x31
 #define REG_LR_INVERTIQ                             0x33
 #define REG_LR_DETECTIONTHRESHOLD                   0x37
+#define REG_LR_SYNCWORD                             0x39
+
 // end of documented register in datasheet
 // I/O settings
 #define REG_LR_DIOMAPPING1                          0x40
@@ -264,26 +266,23 @@ Maintainer: Miguel Luis and Gregory Cristian
 /*!
  * RegFifoRxNbBytes (Read Only)
  */
- 
+
 /*!
  * RegRxHeaderCntValueMsb (Read Only)
  */
- 
+
 /*!
  * RegRxHeaderCntValueLsb (Read Only)
  */
- 
- 
+
 /*!
  * RegRxPacketCntValueMsb (Read Only)
  */
- 
- 
+
 /*!
  * RegRxPacketCntValueLsb (Read Only)
  */
- 
- 
+
 /*!
  * RegModemStat (Read Only)
  */
@@ -294,12 +293,10 @@ Maintainer: Miguel Luis and Gregory Cristian
  * RegPktSnrValue (Read Only)
  */
 
- 
- /*!
+/*!
  * RegPktRssiValue (Read Only)
  */
- 
- 
+
 /*!
  * RegRssiValue (Read Only)
  */
@@ -316,7 +313,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_HOPCHANNEL_CRCONPAYLOAD_OFF            0x00 // Default
 
 #define RFLR_HOPCHANNEL_CHANNEL_MASK                0x3F 
- 
+
 /*!
  * RegModemConfig1
  */
@@ -363,7 +360,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define RFLR_MODEMCONFIG2_RXPAYLOADCRC_OFF          0x00 // Default
  
 #define RFLR_MODEMCONFIG2_SYMBTIMEOUTMSB_MASK       0xFC 
-#define RFLR_MODEMCONFIG2_SYMBTIMEOUTMSB            0x00 // Default                                      
+#define RFLR_MODEMCONFIG2_SYMBTIMEOUTMSB            0x00 // Default
 
 /*!
  * RegSymbTimeoutLsb
@@ -436,9 +433,12 @@ Maintainer: Miguel Luis and Gregory Cristian
 /*!
  * RegInvertIQ
  */
-#define RFLR_INVERTIQ_MASK                          0xBF
-#define RFLR_INVERTIQ_OFF                           0x00
-#define RFLR_INVERTIQ_ON                            0x40
+#define RFLR_INVERTIQ_RX_MASK                       0xBF
+#define RFLR_INVERTIQ_RX_OFF                        0x00
+#define RFLR_INVERTIQ_RX_ON                         0x40
+#define RFLR_INVERTIQ_TX_MASK                       0xFE
+#define RFLR_INVERTIQ_TX_OFF                        0x01
+#define RFLR_INVERTIQ_TX_ON                         0x00
 
 /*!
  * RegDetectionThreshold

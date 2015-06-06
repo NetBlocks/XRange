@@ -32,6 +32,7 @@ typedef enum
     RF_IDLE = 0,
     RF_RX_RUNNING,
     RF_TX_RUNNING,
+    RF_CAD,
 }RadioState_t;
 
 /*!
@@ -53,14 +54,11 @@ typedef struct
      * \param [IN] payload Received buffer pointer
      * \param [IN] size    Received buffer size
      * \param [IN] rssi    RSSI value computed while receiving the frame [dBm]
-     * \param [IN] snr     SNR value computed while receiving the frame
+     * \param [IN] snr     Raw SNR value given by the radio hardware
      *                     FSK : N/A ( set to 0 )
      *                     LoRa: SNR value in dB
-     * \param [IN] rawSnr  Raw SNR value given by the radio hardware
-     *                     FSK : N/A ( set to 0 )
-     *                     LoRa: Raw SNR value
      */
-    void    ( *RxDone )( uint8_t *payload, uint16_t size, double rssi, double snr, uint8_t rawSnr );
+    void    ( *RxDone )( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr );
     /*!
      * \brief  Rx Timeout callback prototype.
      */
@@ -69,6 +67,19 @@ typedef struct
      * \brief Rx Error callback prototype.
      */
     void    ( *RxError )( void );
+    /*!
+     * \brief  FHSS Change Channel callback prototype.
+     *
+     * \param [IN] currentChannel   Index number of the current channel
+     */
+    void ( *FhssChangeChannel )( uint8_t currentChannel );
+
+    /*!
+     * \brief CAD Done callback prototype.
+     *
+     * \param [IN] channelDetected    Channel Activity detected during the CAD
+     */
+    void ( *CadDone ) ( bool channelActivityDetected );
 }RadioEvents_t;
 
 /*!
@@ -89,6 +100,12 @@ struct Radio_s
      */
     RadioState_t ( *Status )( void );
     /*!
+     * \brief Configures the radio with the given modem
+     *
+     * \param [IN] modem Modem to be used [0: FSK, 1: LoRa] 
+     */
+    void    ( *SetModem )( RadioModems_t modem );
+    /*!
      * \brief Sets the channel frequency
      *
      * \param [IN] freq         Channel RF frequency
@@ -103,7 +120,7 @@ struct Radio_s
      *
      * \retval isFree         [true: Channel is free, false: Channel is not free]
      */
-    bool    ( *IsChannelFree )( RadioModems_t modem, uint32_t freq, int32_t rssiThresh );
+    bool    ( *IsChannelFree )( RadioModems_t modem, uint32_t freq, int16_t rssiThresh );
     /*!
      * \brief Generates a 32 bits random value based on the RSSI readings
      *
@@ -140,7 +157,14 @@ struct Radio_s
      *                          FSK : N/A ( set to 0 ) 
      *                          LoRa: timeout in symbols
      * \param [IN] fixLen       Fixed length packets [0: variable, 1: fixed]
+     * \param [IN] payloadLen   Sets payload length when fixed lenght is used
      * \param [IN] crcOn        Enables/Disables the CRC [0: OFF, 1: ON]
+     * \param [IN] FreqHopOn    Enables disables the intra-packet frequency hopping
+     *                          FSK : N/A ( set to 0 )
+     *                          LoRa: [0: OFF, 1: ON]
+     * \param [IN] HopPeriod    Number of symbols bewteen each hop
+     *                          FSK : N/A ( set to 0 )
+     *                          LoRa: Number of symbols
      * \param [IN] iqInverted   Inverts IQ signals (LoRa only)
      *                          FSK : N/A ( set to 0 )
      *                          LoRa: [0: not inverted, 1: inverted]
@@ -151,7 +175,9 @@ struct Radio_s
                               uint32_t datarate, uint8_t coderate,
                               uint32_t bandwidthAfc, uint16_t preambleLen,
                               uint16_t symbTimeout, bool fixLen,
-                              bool crcOn, bool iqInverted, bool rxContinuous );
+                              uint8_t payloadLen,
+                              bool crcOn, bool FreqHopOn, uint8_t HopPeriod,
+                              bool iqInverted, bool rxContinuous );
     /*!
      * \brief Sets the transmission parameters
      *
@@ -176,6 +202,12 @@ struct Radio_s
      *                          LoRa: Length in symbols (the hardware adds 4 more symbols)
      * \param [IN] fixLen       Fixed length packets [0: variable, 1: fixed]
      * \param [IN] crcOn        Enables disables the CRC [0: OFF, 1: ON]
+     * \param [IN] FreqHopOn    Enables disables the intra-packet frequency hopping
+     *                          FSK : N/A ( set to 0 )
+     *                          LoRa: [0: OFF, 1: ON]
+     * \param [IN] HopPeriod    Number of symbols bewteen each hop
+     *                          FSK : N/A ( set to 0 )
+     *                          LoRa: Number of symbols
      * \param [IN] iqInverted   Inverts IQ signals (LoRa only)
      *                          FSK : N/A ( set to 0 )
      *                          LoRa: [0: not inverted, 1: inverted]
@@ -184,8 +216,8 @@ struct Radio_s
     void    ( *SetTxConfig )( RadioModems_t modem, int8_t power, uint32_t fdev, 
                               uint32_t bandwidth, uint32_t datarate,
                               uint8_t coderate, uint16_t preambleLen,
-                              bool fixLen, bool crcOn,
-                              bool iqInverted, uint32_t timeout );
+                              bool fixLen, bool crcOn, bool FreqHopOn,
+                              uint8_t HopPeriod, bool iqInverted, uint32_t timeout );
     /*!
      * \brief Checks if the given RF frequency is supported by the hardware
      *
@@ -194,16 +226,16 @@ struct Radio_s
      */
     bool    ( *CheckRfFrequency )( uint32_t frequency );
     /*!
-     * \brief Computes the packet time on air for the given payload
+     * \brief Computes the packet time on air in us for the given payload
      *
      * \Remark Can only be called once SetRxConfig or SetTxConfig have been called
      *
      * \param [IN] modem      Radio modem to be used [0: FSK, 1: LoRa]
      * \param [IN] pktLen     Packet payload length
      *
-     * \retval airTime        Computed airTime for the given packet payload length
+     * \retval airTime        Computed airTime (us) for the given packet payload length
      */
-    double  ( *TimeOnAir )( RadioModems_t modem, uint8_t pktLen );
+    uint32_t  ( *TimeOnAir )( RadioModems_t modem, uint8_t pktLen );
     /*!
      * \brief Sends the buffer of size. Prepares the packet to be sent and sets
      *        the radio in transmission
@@ -227,11 +259,15 @@ struct Radio_s
      */
     void    ( *Rx )( uint32_t timeout );
     /*!
+     * \brief Start a Channel Activity Detection
+     */
+    void    ( *StartCad )( void );
+    /*!
      * \brief Reads the current RSSI value
      *
      * \retval rssiValue Current RSSI value in [dBm]
      */
-    double ( *Rssi )( RadioModems_t modem );
+    int16_t ( *Rssi )( RadioModems_t modem );
     /*!
      * \brief Writes the radio register at the specified address
      *

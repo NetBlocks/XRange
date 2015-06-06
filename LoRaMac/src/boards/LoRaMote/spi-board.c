@@ -28,13 +28,11 @@ typedef enum {
 
 SPI_InitTypeDef SPI_InitStructure;
 
-
 void SpiInit( Spi_t *obj, PinNames mosi, PinNames miso, PinNames sclk, PinNames nss )
 {
     GpioInit( &obj->Mosi, mosi, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
     GpioInit( &obj->Miso, miso, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
     GpioInit( &obj->Sclk, sclk, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
-
 	
     GPIO_PinAFConfig( obj->Mosi.port, ( obj->Mosi.pin & 0x0F ), GPIO_AF_SPI2 );
     GPIO_PinAFConfig( obj->Miso.port, ( obj->Miso.pin & 0x0F ), GPIO_AF_SPI2 );
@@ -43,14 +41,17 @@ void SpiInit( Spi_t *obj, PinNames mosi, PinNames miso, PinNames sclk, PinNames 
 
     if( nss != NC )
     {
-      GpioInit( &obj->Nss, nss, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_UP, 1 );
-			GPIO_PinAFConfig( obj->Nss.port, ( obj->Nss.pin & 0x0F ), GPIO_AF_SPI2 );
+        GpioInit( &obj->Nss, nss, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_UP, 1 );
+        // TODO: Make independent of stm32l1xx_gpio.h
+        GPIO_PinAFConfig( obj->Nss.port, ( obj->Nss.pin & 0x0F ), GPIO_AF_SPI2 );
+			
     }
     else
     {
         SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;
     }
 
+    // Choose SPI interface according to the given pins
     obj->Spi = ( SPI_TypeDef* )SPI2_BASE;
     RCC_APB1PeriphClockCmd( RCC_APB1Periph_SPI2, ENABLE );
 		
@@ -64,13 +65,11 @@ void SpiInit( Spi_t *obj, PinNames mosi, PinNames miso, PinNames sclk, PinNames 
         // 8 bits, CPOL = 0, CPHA = 0, SLAVE
         SpiFormat( obj, 8, 0, 0, 1 );
     }
-    //SpiFrequency( obj, 10000000 );
-		SpiFrequency( obj, 1000000 );
+    SpiFrequency( obj, 10000000 );
 
     SPI_Cmd( obj->Spi, ENABLE );
 }
 
-//--------------
 void SpiDeInit( Spi_t *obj )
 {
     SPI_Cmd( obj->Spi, DISABLE );

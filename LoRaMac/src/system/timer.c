@@ -13,8 +13,10 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 Maintainer: Miguel Luis and Gregory Cristian
 */
 #include "board.h"
-#include "timer-board.h"
 #include "rtc-board.h"
+#include "timer-board.h"
+
+static bool LowPowerModeEnable = true;
 
 /*!
  * This flag is used to make sure we have looped through the main several time to avoid race issues
@@ -59,15 +61,26 @@ static void TimerSetTimeout( TimerEvent_t *obj );
  * \brief Check if the Object to be added is not already in the list
  * 
  * \param [IN] timestamp Delay duration
- * \retval [out] true (the object is already in the list) or false  
+ * \retval true (the object is already in the list) or false  
  */
 static bool TimerExists( TimerEvent_t *obj );
 
 /*!
  * \brief Read the timer value of the currently running timer
+ *
+ * \retval value current timer value
  */
 uint32_t TimerGetValue( void );
 
+void TimerSetLowPowerEnable( bool enable )
+{
+   LowPowerModeEnable = enable;
+}
+
+bool TimerGetLowPowerEnable( void )
+{
+    return LowPowerModeEnable;
+}
 
 void TimerInit( TimerEvent_t *obj, void ( *callback )( void ) )
 {
@@ -186,7 +199,7 @@ static void TimerInsertNewHeadTimer( TimerEvent_t *obj, uint32_t remainingTime )
 
     if( cur != NULL )
     {
-        cur->Timestamp = remainingTime - obj->Timestamp;  
+        cur->Timestamp = remainingTime - obj->Timestamp;
         cur->IsRunning = false;
     }
 
@@ -200,6 +213,14 @@ void TimerIrqHandler( void )
 {
     uint32_t elapsedTime = 0;
  
+    if( LowPowerModeEnable == false )
+    {
+        if( TimerListHead == NULL )
+        {
+            return;  // Only necessary when the standard timer is used as a time base
+        }
+    }
+
     elapsedTime = TimerGetValue( );
 
     TimerEvent_t* elapsedTimer = NULL;
@@ -347,7 +368,7 @@ static bool TimerExists( TimerEvent_t *obj )
         }
         cur = cur->Next;
     }
-    return false; 
+    return false;
 }
 
 void TimerReset( TimerEvent_t *obj )
@@ -362,11 +383,14 @@ void TimerSetValue( TimerEvent_t *obj, uint32_t value )
 
     TimerStop( obj );
 
-#ifdef LOW_POWER_MODE_ENABLE
-    minValue = RtcGetMinimumTimeout( );
-#else
-    minValue = TimerHwGetMinimumTimeout( );   
-#endif
+    if( LowPowerModeEnable == true )
+    {
+        minValue = RtcGetMinimumTimeout( );
+    }
+    else
+    {
+        minValue = TimerHwGetMinimumTimeout( );
+    }
     
     if( value < minValue )
     {
@@ -379,26 +403,40 @@ void TimerSetValue( TimerEvent_t *obj, uint32_t value )
 
 uint32_t TimerGetValue( void )
 {
-    uint32_t valTimer = 0;
+    if( LowPowerModeEnable == true )
+    {
+        return RtcGetTimerElapsedTime( );
+    }
+    else
+    {
+        return TimerHwGetElapsedTime( );
+    }
+}
 
-#ifdef LOW_POWER_MODE_ENABLE
-    valTimer = RtcGetTimerElapsedTime( );
-#else
-    valTimer = TimerHwGetElapsedTime( );    
-#endif
-
-    return valTimer;
+TimerTime_t TimerGetCurrentTime( void )
+{
+    if( LowPowerModeEnable == true )
+    {
+        return RtcGetTimerValue( );
+    }
+    else
+    {
+        return TimerHwGetTime( );
+    }
 }
 
 static void TimerSetTimeout( TimerEvent_t *obj )
 {
     HasLoopedThroughMain = 0;
 
-#ifdef LOW_POWER_MODE_ENABLE
-    RtcSetTimeout( obj->Timestamp );
-#else
-    TimerHwStart( obj->Timestamp );
-#endif
+    if( LowPowerModeEnable == true )
+    {
+        RtcSetTimeout( obj->Timestamp );
+    }
+    else
+    {
+        TimerHwStart( obj->Timestamp );
+    }
 }
 
 void TimerLowPowerHandler( void )
@@ -413,11 +451,14 @@ void TimerLowPowerHandler( void )
         { 
             HasLoopedThroughMain = 0;
     
-#ifdef LOW_POWER_MODE_ENABLE      
-            RtcEnterLowPowerStopMode( );
-#else
-            TimerHwEnterLowPowerStopMode( );
-#endif
+            if( LowPowerModeEnable == true )
+            {
+                RtcEnterLowPowerStopMode( );
+            }
+            else
+            {
+                TimerHwEnterLowPowerStopMode( );
+            }
         }
     }
 }

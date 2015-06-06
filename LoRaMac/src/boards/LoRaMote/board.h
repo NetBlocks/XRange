@@ -27,25 +27,20 @@ Maintainer: Miguel Luis and Gregory Cristian
 #include "gpio.h"
 //#include "adc.h"
 #include "spi.h"
-//#include "i2c.h"
-//#include "uart.h"
+#include "i2c.h"
+#include "uart.h"
 #include "radio.h"
 #include "sx1272/sx1272.h"
-//#include "mag3110.h"
-//#include "mma8451.h"
-//#include "mpl3115.h"
-//#include "sx9500.h"
-//#include "gps.h"
-//#include "gps-board.h"
 #include "rtc-board.h"
 #include "timer-board.h"
 #include "sx1272-board.h"
 //#include "uart-board.h"
 
-#if defined( USE_USB_CDC )
-#include "usb-cdc-board.h"
-#endif
 
+/*!
+ * Define indicating if an external IO expander is to be used
+ */
+#define BOARD_IOE_EXT
 
 /*!
  * NULL definition
@@ -88,29 +83,29 @@ Maintainer: Miguel Luis and Gregory Cristian
 /*!
  * Board IO Extender pins definitions
  */
-#define LED_1                                       PA_7 //IOE_12
-#define LED_2                                       PA_8 //IOE_13
-#define SPARE_IO_NC                                 IOE_15
+#define LED_1                                       PA_7
+#define LED_2                                       PA_8
 
 /*!
  * Board MCU pins definitions
  */
 
-#define RADIO_RESET                                 PB_2 //PA_2
+#define RADIO_RESET                                 PB_2
 
-#define RADIO_MOSI                                  PB_15 //PA_7
-#define RADIO_MISO                                  PB_14  //PA_6
-#define RADIO_SCLK                                  PB_13  //PA_5
-#define RADIO_NSS                                   PB_12 //PB_0
+#define RADIO_MOSI                                  PB_15
+#define RADIO_MISO                                  PB_14
+#define RADIO_SCLK                                  PB_13
+#define RADIO_NSS                                   PB_12
 
-#define RADIO_DIO_0                                 PA_10 //PB_1
-#define RADIO_DIO_1                                 PA_9  //PB_10
-#define RADIO_DIO_2                                 PC_13  //PB_11
-#define RADIO_DIO_3                                 PB_0  //PB_7
-#define RADIO_DIO_4                                 PB_4  //PB_5
-#define RADIO_DIO_5                                 PB_10 //PB_4
+#define RADIO_DIO_0                                 PA_10
+#define RADIO_DIO_1                                 PA_9
+#define RADIO_DIO_2                                 PC_13
+#define RADIO_DIO_3                                 PB_0
+#define RADIO_DIO_4                                 PB_1
+#define RADIO_DIO_5                                 PB_10
 
-#define RADIO_ANT_SWITCH_TX                         PB_11 //PA_4
+
+#define RADIO_ANT_SWITCH_TX                         PB_11
 
 #define OSC_LSE_IN                                  PC_14
 #define OSC_LSE_OUT                                 PC_15
@@ -141,10 +136,10 @@ Maintainer: Miguel Luis and Gregory Cristian
     
 #define GPS_PPS                                     PA_8
 #define UART_TX                                     PA_9
-#define UART_RX                                     PA_10    
+#define UART_RX                                     PA_10
 
-#define PIN_PB6                                     PB_6    
-#define WKUP1                                       PA_0 
+#define PIN_PB6                                     PB_6
+#define WKUP1                                       PA_0
 
 
 /*!
@@ -154,29 +149,12 @@ extern Gpio_t Led1;
 extern Gpio_t Led2;
 
 
-/*!
- * Debug GPIO pins objects
- */
-#if defined( USE_DEBUG_PINS )
-extern Gpio_t DbgPin1;
-extern Gpio_t DbgPin2;
-extern Gpio_t DbgPin3;
-extern Gpio_t DbgPin4;
-#endif
 
 /*!
  * MCU objects
  */
-//extern Adc_t Adc;
-//extern I2c_t I2c;
-//extern Uart_t Uart1;
-//#if defined( USE_USB_CDC )
-//extern Uart_t UartUsb;
-//#endif
+extern Uart_t Uart1;
 
-//extern Gpio_t GpsPps;
-//extern Gpio_t GpsRx;
-extern Gpio_t GpsTx;
 
 /*!
  * \brief Initializes the target board peripherals.

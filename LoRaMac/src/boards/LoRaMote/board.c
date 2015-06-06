@@ -21,11 +21,7 @@ Gpio_t Led1;
 Gpio_t Led2;
 
 
-/*
- * MCU objects
- */
-Gpio_t GpsTx;
-
+Uart_t Uart1;
 
 /*!
  * Initializes the unused GPIO to a know status
@@ -42,7 +38,7 @@ void BoardInitPeriph( void )
     /* Init the GPIO extender pins */
     GpioInit( &Led1, LED_1, PIN_OUTPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
     GpioInit( &Led2, LED_2, PIN_OUTPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
-    // Switch LED 1, 2,  OFF
+    // Switch LED 1, 2, 3 OFF
     GpioWrite( &Led1, 1 );
     GpioWrite( &Led2, 1 );
 }
@@ -64,33 +60,36 @@ void BoardInitMcu( void )
         SX1272IoInit( );
 
 
-
-#ifdef LOW_POWER_MODE_ENABLE
-        RtcInit( );
+#if defined( LOW_POWER_MODE_ENABLE )
+        TimerSetLowPowerEnable( true );
 #else
-        TimerHwInit( );
+        TimerSetLowPowerEnable( false );
 #endif
+
+        if( TimerGetLowPowerEnable( ) == true )
+        {
+            RtcInit( );
+        }
+        else
+        {
+            TimerHwInit( );
+        }
         McuInitialized = true;
     }
 }
 
 void BoardDeInitMcu( void )
 {
-    Gpio_t oscHseIn;
-    Gpio_t oscHseOut;  
-    Gpio_t oscLseIn;
-    Gpio_t oscLseOut;
-
+    Gpio_t ioPin;
 
     SpiDeInit( &SX1272.Spi );
     SX1272IoDeInit( );
 
+    GpioInit( &ioPin, OSC_HSE_IN, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 1 );
+    GpioInit( &ioPin, OSC_HSE_OUT, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 1 );
 
-    GpioInit( &oscHseIn, OSC_HSE_IN, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 1 );
-    GpioInit( &oscHseOut, OSC_HSE_OUT, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 1 );
-
-    GpioInit( &oscLseIn, OSC_LSE_IN, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_DOWN, 1 );
-    GpioInit( &oscLseOut, OSC_LSE_OUT, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_DOWN, 1 );
+    GpioInit( &ioPin, OSC_LSE_IN, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_DOWN, 1 );
+    GpioInit( &ioPin, OSC_LSE_OUT, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_DOWN, 1 );
     
     McuInitialized = false;
 }

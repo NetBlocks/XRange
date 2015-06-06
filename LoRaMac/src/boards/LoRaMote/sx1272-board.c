@@ -29,6 +29,7 @@ const struct Radio_s Radio =
 {
     SX1272Init,
     SX1272GetStatus,
+    SX1272SetModem,
     SX1272SetChannel,
     SX1272IsChannelFree,
     SX1272Random,
@@ -40,6 +41,7 @@ const struct Radio_s Radio =
     SX1272SetSleep,
     SX1272SetStby, 
     SX1272SetRx,
+    SX1272StartCad,
     SX1272ReadRssi,
     SX1272Write,
     SX1272Read,
@@ -50,7 +52,7 @@ const struct Radio_s Radio =
 /*!
  * Antenna switch GPIO pins objects
  */
-Gpio_t AntRx;
+//Gpio_t AntRx;
 Gpio_t AntTx;
 
 void SX1272IoInit( void )
@@ -62,9 +64,8 @@ void SX1272IoInit( void )
     GpioInit( &SX1272.DIO2, RADIO_DIO_2, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
     GpioInit( &SX1272.DIO3, RADIO_DIO_3, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
     GpioInit( &SX1272.DIO4, RADIO_DIO_4, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
-//   GpioInit( &SX1272.DIO5, RADIO_DIO_5, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
+//    GpioInit( &SX1272.DIO5, RADIO_DIO_5, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
 
-    SX1272AntSwInit( );
 }
 
 void SX1272IoIrqInit( DioIrqHandler **irqHandlers )
@@ -86,7 +87,7 @@ void SX1272IoDeInit( void )
     GpioInit( &SX1272.DIO2, RADIO_DIO_2, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
     GpioInit( &SX1272.DIO3, RADIO_DIO_3, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
     GpioInit( &SX1272.DIO4, RADIO_DIO_4, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
-    GpioInit( &SX1272.DIO5, RADIO_DIO_5, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+//    GpioInit( &SX1272.DIO5, RADIO_DIO_5, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
 }
 
 uint8_t SX1272GetPaSelect( uint32_t channel )
@@ -118,7 +119,7 @@ void SX1272AntSwInit( void )
 
 void SX1272AntSwDeInit( void )
 {
-    GpioInit( &AntTx, RADIO_ANT_SWITCH_TX, PIN_INPUT, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+    GpioInit( &AntTx, RADIO_ANT_SWITCH_TX, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
 }
 
 void SX1272SetAntSw( uint8_t rxTx )
@@ -130,7 +131,7 @@ void SX1272SetAntSw( uint8_t rxTx )
 
     SX1272.RxTx = rxTx;
 
-    if( rxTx != 0 )
+    if( rxTx != 0 ) // 1: TX, 0: RX
     {
         GpioWrite( &AntTx, 1 );
     }
