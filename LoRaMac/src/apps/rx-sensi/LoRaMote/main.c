@@ -14,9 +14,7 @@ Description: Radio sensitivity test.
 
 License: Revised BSD License, see LICENSE.TXT file include in the project
 
-Maintainers: www.netblocks.eu
-SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
-
+Maintainer: Miguel Luis and Gregory Cristian
 */
 #include <string.h>
 #include "board.h"

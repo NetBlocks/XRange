@@ -10,9 +10,7 @@ Description: Ping-Pong implementation
 
 License: Revised BSD License, see LICENSE.TXT file include in the project
 
-Maintainers: www.netblocks.eu
-SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
-
+Maintainer: Miguel Luis and Gregory Cristian
 */
 #include <string.h>
 #include "board.h"
@@ -20,7 +18,7 @@ SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
 
 #if defined( USE_BAND_868 )
 
-#define RF_FREQUENCY                                870000000 // Hz
+#define RF_FREQUENCY                                868000000 // Hz
 
 #elif defined( USE_BAND_915 )
 
@@ -30,7 +28,7 @@ SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
     #error "Please define a frequency band in the compiler options."
 #endif
 
-#define TX_OUTPUT_POWER                             20        // dBm
+#define TX_OUTPUT_POWER                             14        // dBm
 
 #if defined( USE_MODEM_LORA )
 
@@ -38,7 +36,7 @@ SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
                                                               //  1: 250 kHz,
                                                               //  2: 500 kHz,
                                                               //  3: Reserved]
-#define LORA_SPREADING_FACTOR                       9         // [SF7..SF12]
+#define LORA_SPREADING_FACTOR                       7         // [SF7..SF12]
 #define LORA_CODINGRATE                             1         // [1: 4/5,
                                                               //  2: 4/6,
                                                               //  3: 4/7,
@@ -72,7 +70,7 @@ typedef enum
 }States_t;
 
 #define RX_TIMEOUT_VALUE                            1000000
-#define BUFFER_SIZE                                 9 // Define the payload size here
+#define BUFFER_SIZE                                 64 // Define the payload size here
 
 const uint8_t PingMsg[] = "PING";
 const uint8_t PongMsg[] = "PONG";
@@ -81,10 +79,9 @@ uint16_t BufferSize = BUFFER_SIZE;
 uint8_t Buffer[BUFFER_SIZE];
 
 States_t State = LOWPOWER;
-//States_t State = TX;
 
-double RssiValue = 0.0;
-double SnrValue = 0.0;
+int8_t RssiValue = 0;
+int8_t SnrValue = 0;
 
 /*!
  * Radio events function pointer
@@ -99,7 +96,6 @@ void OnTxDone( void );
 /*!
  * \brief Function to be executed on Radio Rx Done event
  */
-//void OnRxDone( uint8_t *payload, uint16_t size, double rssi, double snr, uint8_t rawSnr );
 void OnRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr );
 
 /*!
@@ -120,26 +116,6 @@ void OnRxError( void );
 /**
  * Main application entry point.
  */
- 
-volatile uint32_t res2;
-uint32_t SX1272LoRaGetRFFrequency( void );
-
-void NSSTest(void);
-void SPITest(void);
-
-static TimerEvent_t Led1Timer;
-volatile uint32_t f = 0;
-
-void OnLed1TimerEvent( void )
-{
-static unsigned int state = 0;
-	
-	GpioWrite( &Led2, state );
-	state = !state;
-	TimerStart( &Led1Timer );
- //   Led1TimerEvent = true;
-}
-
 int main( void )
 {
     bool isMaster = true;
@@ -148,22 +124,19 @@ int main( void )
     // Target board initialisation
     BoardInitMcu( );
     BoardInitPeriph( );
-			
+
     // Radio initialization
     RadioEvents.TxDone = OnTxDone;
     RadioEvents.RxDone = OnRxDone;
     RadioEvents.TxTimeout = OnTxTimeout;
     RadioEvents.RxTimeout = OnRxTimeout;
     RadioEvents.RxError = OnRxError;
-	
 
     Radio.Init( &RadioEvents );
 
     Radio.SetChannel( RF_FREQUENCY );
 
 #if defined( USE_MODEM_LORA )
-
-																 
 
     Radio.SetTxConfig( MODEM_LORA, TX_OUTPUT_POWER, 0, LORA_BANDWIDTH,
                                    LORA_SPREADING_FACTOR, LORA_CODINGRATE,
@@ -174,30 +147,25 @@ int main( void )
                                    LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
                                    LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
                                    0, true, 0, 0, LORA_IQ_INVERSION_ON, true );
-																	 
 
 #elif defined( USE_MODEM_FSK )
 
-    Radio.SetTxConfig( MODEM_LORA, TX_OUTPUT_POWER, FSK_FDEV, 0,
-                                   FSK_DATARATE, 0,
-                                   FSK_PREAMBLE_LENGTH, FSK_FIX_LENGTH_PAYLOAD_ON,
-                                   true, 0, 3000000 );
+    Radio.SetTxConfig( MODEM_FSK, TX_OUTPUT_POWER, FSK_FDEV, 0,
+                                  FSK_DATARATE, 0,
+                                  FSK_PREAMBLE_LENGTH, FSK_FIX_LENGTH_PAYLOAD_ON,
+                                  true, 0, 0, 0, 3000000 );
     
     Radio.SetRxConfig( MODEM_FSK, FSK_BANDWIDTH, FSK_DATARATE,
                                   0, FSK_AFC_BANDWIDTH, FSK_PREAMBLE_LENGTH,
-                                  0, FSK_FIX_LENGTH_PAYLOAD_ON, true,
-                                  false, true );
+                                  0, FSK_FIX_LENGTH_PAYLOAD_ON, 0, true,
+                                  0, 0,false, true );
 
 #else
     #error "Please define a frequency band in the compiler options."
 #endif
     
-
-																	
     Radio.Rx( RX_TIMEOUT_VALUE );
-																	
-																	
-																
+
     while( 1 )
     {
         switch( State )
@@ -231,6 +199,11 @@ int main( void )
                         GpioWrite( &Led2, 1 ); // Set LED off
                         Radio.Rx( RX_TIMEOUT_VALUE );
                     }
+                    else // valid reception but neither a PING or a PONG message
+                    {    // Set device as master ans start again
+                        isMaster = true;
+                        Radio.Rx( RX_TIMEOUT_VALUE );
+                    }
                 }
             }
             else
@@ -255,6 +228,11 @@ int main( void )
                         DelayMs( 1 );
                         Radio.Send( Buffer, BufferSize );
                     }
+                    else // valid reception but not a PING as expected
+                    {    // Set device as master and start again
+                        isMaster = true;
+                        Radio.Rx( RX_TIMEOUT_VALUE );
+                    }   
                 }
             }
             State = LOWPOWER;
@@ -305,9 +283,9 @@ int main( void )
 
 void OnTxDone( void )
 {
+    Radio.Sleep( );
     State = TX;
 }
-
 
 void OnRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr )
 {

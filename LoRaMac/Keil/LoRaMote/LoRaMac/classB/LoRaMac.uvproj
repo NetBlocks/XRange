@@ -574,6 +574,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -1196,6 +1199,9 @@
               <FilePath>..\..\..\..\src\mac\LoRaMacCrypto.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>
@@ -1822,6 +1828,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -2444,6 +2453,9 @@
               <FilePath>..\..\..\..\src\mac\LoRaMacCrypto.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>

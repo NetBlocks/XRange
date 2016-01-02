@@ -559,6 +559,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -1151,6 +1154,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>
@@ -1747,6 +1753,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -2339,6 +2348,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>
@@ -2935,6 +2947,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -3527,6 +3542,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>
@@ -4123,6 +4141,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -4715,6 +4736,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>

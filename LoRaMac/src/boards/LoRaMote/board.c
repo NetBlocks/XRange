@@ -94,6 +94,11 @@ void BoardDeInitMcu( void )
     McuInitialized = false;
 }
 
+uint32_t BoardGetRandomSeed( void )
+{
+    return ( ( *( uint32_t* )ID1 ) ^ ( *( uint32_t* )ID2 ) ^ ( *( uint32_t* )ID3 ) );
+}
+
 void BoardGetUniqueId( uint8_t *id )
 {
     id[0] = ( ( *( uint32_t* )ID1 )+ ( *( uint32_t* )ID3 ) ) >> 24;

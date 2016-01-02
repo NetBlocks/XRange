@@ -18,6 +18,19 @@ Maintainer: Miguel Luis and Gregory Cristian
 #include "stm32l1xx_gpio.h"
 
 /*!
+ * \brief  Find First Set
+ *         This function identifies the least significant index or position of the
+ *         bits set to one in the word
+ *
+ * \param [in]  value  Value to find least significant index
+ * \retval bitIndex    Index of least significat bit at one
+ */
+__STATIC_INLINE uint8_t __ffs( uint32_t value )
+{
+    return( uint32_t )( 32 - __CLZ( value & ( -value ) ) );
+}
+
+/*!
  * MCU SPI peripherals enumeration
  */
 typedef enum {
@@ -33,18 +46,17 @@ void SpiInit( Spi_t *obj, PinNames mosi, PinNames miso, PinNames sclk, PinNames 
     GpioInit( &obj->Mosi, mosi, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
     GpioInit( &obj->Miso, miso, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
     GpioInit( &obj->Sclk, sclk, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_DOWN, 0 );
-	
+
+    // TODO: Make independent of stm32l1xx_gpio.h
     GPIO_PinAFConfig( obj->Mosi.port, ( obj->Mosi.pin & 0x0F ), GPIO_AF_SPI2 );
     GPIO_PinAFConfig( obj->Miso.port, ( obj->Miso.pin & 0x0F ), GPIO_AF_SPI2 );
     GPIO_PinAFConfig( obj->Sclk.port, ( obj->Sclk.pin & 0x0F ), GPIO_AF_SPI2 );
-	
 
     if( nss != NC )
     {
         GpioInit( &obj->Nss, nss, PIN_ALTERNATE_FCT, PIN_PUSH_PULL, PIN_PULL_UP, 1 );
         // TODO: Make independent of stm32l1xx_gpio.h
         GPIO_PinAFConfig( obj->Nss.port, ( obj->Nss.pin & 0x0F ), GPIO_AF_SPI2 );
-			
     }
     else
     {
@@ -54,7 +66,7 @@ void SpiInit( Spi_t *obj, PinNames mosi, PinNames miso, PinNames sclk, PinNames 
     // Choose SPI interface according to the given pins
     obj->Spi = ( SPI_TypeDef* )SPI2_BASE;
     RCC_APB1PeriphClockCmd( RCC_APB1Periph_SPI2, ENABLE );
-		
+
     if( nss == NC )
     {
         // 8 bits, CPOL = 0, CPHA = 0, MASTER

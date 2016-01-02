@@ -169,11 +169,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>4096</DriverSelection>
+            <DriverSelection>4103</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -557,6 +557,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>
@@ -1153,6 +1156,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -1747,6 +1753,9 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>peripherals</GroupName>
+        </Group>
+        <Group>
           <GroupName>radio</GroupName>
           <Files>
             <File>
@@ -2339,6 +2348,9 @@
               <FilePath>..\..\..\src\boards\mcu\stm32\utilities.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>peripherals</GroupName>
         </Group>
         <Group>
           <GroupName>radio</GroupName>

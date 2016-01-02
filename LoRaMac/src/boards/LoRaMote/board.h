@@ -63,7 +63,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 /*!
  * Battery level ratio (battery dependent)
  */
-#define BATTERY_STEP_LEVEL                          0.23
+//#define BATTERY_STEP_LEVEL                          0.23
 
 
 /*!
@@ -178,6 +178,13 @@ void BoardDeInitMcu( void );
  * \retval value  battery level ( 0: very low, 254: fully charged )
  */
 uint8_t BoardMeasureBatterieLevel( void );
+
+/*!
+ * Returns a pseudo random seed generated using the MCU Unique ID
+ *
+ * \retval seed Generated pseudo random seed
+ */
+uint32_t BoardGetRandomSeed( void );
 
 /*!
  * \brief Gets the board 64 bits unique ID 

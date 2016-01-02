@@ -13,7 +13,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 Maintainer: Miguel Luis and Gregory Cristian
 */
 #include "board.h"
-//#include "i2c-board.h"
+#include "i2c-board.h"
 
 /*!
  * Flag to indicates if the I2C is initialized 

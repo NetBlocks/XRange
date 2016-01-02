@@ -46,7 +46,8 @@ const struct Radio_s Radio =
     SX1272Write,
     SX1272Read,
     SX1272WriteBuffer,
-    SX1272ReadBuffer
+    SX1272ReadBuffer,
+    SX1272SetMaxPayloadLength
 };
 
 /*!
@@ -65,7 +66,6 @@ void SX1272IoInit( void )
     GpioInit( &SX1272.DIO3, RADIO_DIO_3, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
     GpioInit( &SX1272.DIO4, RADIO_DIO_4, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
 //    GpioInit( &SX1272.DIO5, RADIO_DIO_5, PIN_INPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
-
 }
 
 void SX1272IoIrqInit( DioIrqHandler **irqHandlers )
@@ -115,11 +115,13 @@ void SX1272SetAntSwLowPower( bool status )
 void SX1272AntSwInit( void )
 {
     GpioInit( &AntTx, RADIO_ANT_SWITCH_TX, PIN_OUTPUT, PIN_PUSH_PULL, PIN_PULL_UP, 0 );
+//    GpioInit( &AntRx, RADIO_ANT_SWITCH_RX, PIN_OUTPUT, PIN_PUSH_PULL, PIN_PULL_UP, 1 );
 }
 
 void SX1272AntSwDeInit( void )
 {
     GpioInit( &AntTx, RADIO_ANT_SWITCH_TX, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
+//    GpioInit( &AntRx, RADIO_ANT_SWITCH_RX, PIN_ANALOGIC, PIN_PUSH_PULL, PIN_NO_PULL, 0 );
 }
 
 void SX1272SetAntSw( uint8_t rxTx )
@@ -133,10 +135,12 @@ void SX1272SetAntSw( uint8_t rxTx )
 
     if( rxTx != 0 ) // 1: TX, 0: RX
     {
+//        GpioWrite( &AntRx, 0 );
         GpioWrite( &AntTx, 1 );
     }
     else
     {
+//        GpioWrite( &AntRx, 1 );
         GpioWrite( &AntTx, 0 );
     }
 }

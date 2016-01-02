@@ -10,9 +10,7 @@ Description: Tx Continuous Wave implementation
 
 License: Revised BSD License, see LICENSE.TXT file include in the project
 
-Maintainers: www.netblocks.eu
-SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
-
+Maintainer: Miguel Luis and Gregory Cristian
 */
 #include <string.h>
 #include "board.h"
@@ -47,38 +45,38 @@ SX1272 LoRa RF module : http://www.netblocks.eu/xrange-sx1272-lora-datasheet/
 #define LORA_FIX_LENGTH_PAYLOAD_ON                  false
 #define LORA_IQ_INVERSION_ON                        false
 
-//static TimerEvent_t Led1Timer;
-//volatile bool Led1TimerEvent = false;
+static TimerEvent_t Led1Timer;
+volatile bool Led1TimerEvent = false;
 
-//static TimerEvent_t Led2Timer;
-//volatile bool Led2TimerEvent = false;
+static TimerEvent_t Led2Timer;
+volatile bool Led2TimerEvent = false;
 
-//static TimerEvent_t Led3Timer;
-//volatile bool Led3TimerEvent = false;
+static TimerEvent_t Led3Timer;
+volatile bool Led3TimerEvent = false;
 
 /*!
  * \brief Function executed on Led 1 Timeout event
  */
-//void OnLed1TimerEvent( void )
-//{
-//    Led1TimerEvent = true;
-//}
+void OnLed1TimerEvent( void )
+{
+    Led1TimerEvent = true;
+}
 
-///*!
-// * \brief Function executed on Led 2 Timeout event
-// */
-//void OnLed2TimerEvent( void )
-//{
-//    Led2TimerEvent = true;
-//}
+/*!
+ * \brief Function executed on Led 2 Timeout event
+ */
+void OnLed2TimerEvent( void )
+{
+    Led2TimerEvent = true;
+}
 
 /*!
  * \brief Function executed on Led 3 Timeout event
  */
-//void OnLed3TimerEvent( void )
-//{
-//    Led3TimerEvent = true;
-//}
+void OnLed3TimerEvent( void )
+{
+    Led3TimerEvent = true;
+}
 
 /**
  * Main application entry point.
@@ -115,18 +113,18 @@ int main( void )
     Radio.Write( 0x63, 0x60 );
     Radio.Write( 0x01, 0x83 );
 
-//    TimerInit( &Led1Timer, OnLed1TimerEvent ); 
-//    TimerSetValue( &Led1Timer, 90000 );
+    TimerInit( &Led1Timer, OnLed1TimerEvent ); 
+    TimerSetValue( &Led1Timer, 90000 );
 
-//    TimerInit( &Led2Timer, OnLed2TimerEvent ); 
-//    TimerSetValue( &Led2Timer, 90000 );
+    TimerInit( &Led2Timer, OnLed2TimerEvent ); 
+    TimerSetValue( &Led2Timer, 90000 );
 
-//    TimerInit( &Led3Timer, OnLed3TimerEvent ); 
-//    TimerSetValue( &Led3Timer, 90000 );
-//               
+    TimerInit( &Led3Timer, OnLed3TimerEvent ); 
+    TimerSetValue( &Led3Timer, 90000 );
+               
     // Switch LED 1 ON
     GpioWrite( &Led1, 0 );
-//    TimerStart( &Led1Timer );
+    TimerStart( &Led1Timer );
     
     // Sets the radio in Tx mode
     Radio.Send( NULL, 0 );
@@ -134,37 +132,37 @@ int main( void )
     // Blink LEDs just to show some activity
     while( 1 )
     {
-//        if( Led1TimerEvent == true )
-//        {
-//            Led1TimerEvent = false;
-//            
-//            // Switch LED 1 OFF
-//            GpioWrite( &Led1, 1 );
-//            // Switch LED 2 ON
-//            GpioWrite( &Led2, 0 );
-//            TimerStart( &Led2Timer );
-//        }
+        if( Led1TimerEvent == true )
+        {
+            Led1TimerEvent = false;
+            
+            // Switch LED 1 OFF
+            GpioWrite( &Led1, 1 );
+            // Switch LED 2 ON
+            GpioWrite( &Led2, 0 );
+            TimerStart( &Led2Timer );
+        }
 
-//        if( Led2TimerEvent == true )
-//        {
-//            Led2TimerEvent = false;
-//            
-//            // Switch LED 2 OFF
-//            GpioWrite( &Led2, 1 );
-//            // Switch LED 3 ON
+        if( Led2TimerEvent == true )
+        {
+            Led2TimerEvent = false;
+            
+            // Switch LED 2 OFF
+            GpioWrite( &Led2, 1 );
+            // Switch LED 3 ON
 //            GpioWrite( &Led3, 0 );
-//            TimerStart( &Led3Timer );
-//        }
-//    
-//        if( Led3TimerEvent == true )
-//        {
-//            Led3TimerEvent = false;
-//            
-//            // Switch LED 3 OFF
+            TimerStart( &Led3Timer );
+        }
+    
+        if( Led3TimerEvent == true )
+        {
+            Led3TimerEvent = false;
+            
+            // Switch LED 3 OFF
 //            GpioWrite( &Led3, 1 );
-//            // Switch LED 1 ON
-//            GpioWrite( &Led1, 0 );
-//            TimerStart( &Led1Timer );
-//        }    
-   }
+            // Switch LED 1 ON
+            GpioWrite( &Led1, 0 );
+            TimerStart( &Led1Timer );
+        }    
+    }
 }
