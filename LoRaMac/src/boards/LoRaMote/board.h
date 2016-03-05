@@ -180,17 +180,12 @@ void BoardDeInitMcu( void );
 uint8_t BoardMeasureBatterieLevel( void );
 
 /*!
- * Returns a pseudo random seed generated using the MCU Unique ID
- *
- * \retval seed Generated pseudo random seed
- */
-uint32_t BoardGetRandomSeed( void );
-
-/*!
  * \brief Gets the board 64 bits unique ID 
  *
  * \param [IN] id Pointer to an array that will contain the Unique ID
  */
 void BoardGetUniqueId( uint8_t *id );
+
+uint32_t BoardGetRandomSeed( void );
 
 #endif // __BOARD_H__

@@ -20,28 +20,63 @@ Maintainer: Miguel Luis and Gregory Cristian
 
 #include "gpio-board.h"
 
+//#if defined( BOARD_IOE_EXT )
+//#include "gpio-ioe.h"
+//#endif
 
 void GpioInit( Gpio_t *obj, PinNames pin, PinModes mode,  PinConfigs config, PinTypes type, uint32_t value )
 {
+    if( ( uint32_t )( pin >> 4 ) <= 6 ) 
+    {
         GpioMcuInit( obj, pin, mode, config, type, value );
+    }
+    else
+    {
+    }
 }
 
 void GpioSetInterrupt( Gpio_t *obj, IrqModes irqMode, IrqPriorities irqPriority, GpioIrqHandler *irqHandler )
 {
+    if( ( uint32_t )( obj->pin >> 4 ) <= 6 ) 
+    {
         GpioMcuSetInterrupt( obj, irqMode, irqPriority, irqHandler );
+    }
+    else
+    {
+    }
 }
 
 void GpioRemoveInterrupt( Gpio_t *obj )
 {
+    if( ( uint32_t )( obj->pin >> 4 ) <= 6 ) 
+    {
         //GpioMcuRemoveInterrupt( obj );
+    }
+    else
+    {
+    }
 }
 
 void GpioWrite( Gpio_t *obj, uint32_t value )
 {
+    if( ( uint32_t )( obj->pin >> 4 ) <= 6 ) 
+    {
         GpioMcuWrite( obj, value );
+    }
+    else
+    {
+    }
 }
 
 uint32_t GpioRead( Gpio_t *obj )
 {
+    if( ( uint32_t )( obj->pin >> 4 ) <= 6 ) 
+    {
         return GpioMcuRead( obj );
+    }
+    else
+    {
+        return 0;
+
+    }
 }

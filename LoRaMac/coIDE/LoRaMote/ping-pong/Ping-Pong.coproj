@@ -331,6 +331,7 @@
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_tim.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_tim.c" type="1"/>
     <File name="boards/LoRaMote/board.c" path="../../../src/boards/LoRaMote/board.c" type="1"/>
     <File name="radio" path="" type="2"/>
+    <File name="boards/LoRaMote/i2c-board.c" path="../../../src/boards/LoRaMote/i2c-board.c" type="1"/>
     <File name="boards/mcu/stm32" path="" type="2"/>
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_dbgmcu.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dbgmcu.c" type="1"/>
     <File name="boards/mcu/stm32/sysIrqHandlers.c" path="../../../src/boards/mcu/stm32/sysIrqHandlers.c" type="1"/>
@@ -339,14 +340,16 @@
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_rtc.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_rtc.c" type="1"/>
     <File name="boards/LoRaMote/timer-board.c" path="../../../src/boards/LoRaMote/timer-board.c" type="1"/>
     <File name="boards/LoRaMote" path="" type="2"/>
+    <File name="system/gps.c" path="../../../src/system/gps.c" type="1"/>
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver" path="" type="2"/>
+    <File name="boards/LoRaMote/adc-board.c" path="../../../src/boards/LoRaMote/adc-board.c" type="1"/>
     <File name="system/fifo.c" path="../../../src/system/fifo.c" type="1"/>
     <File name="system" path="" type="2"/>
     <File name="boards/LoRaMote/cmsis/system_stm32l1xx.c" path="../../../src/boards/LoRaMote/cmsis/system_stm32l1xx.c" type="1"/>
     <File name="boards/LoRaMote/gpio-board.c" path="../../../src/boards/LoRaMote/gpio-board.c" type="1"/>
     <File name="boards/LoRaMote/cmsis" path="" type="2"/>
-    <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_dma.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.c" type="1"/>
     <File name="system/timer.c" path="../../../src/system/timer.c" type="1"/>
+    <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_dma.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_dma.c" type="1"/>
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_i2c.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_i2c.c" type="1"/>
     <File name="system/uart.c" path="../../../src/system/uart.c" type="1"/>
     <File name="boards/LoRaMote/STM32L1xx_StdPeriph_Driver/stm32l1xx_gpio.c" path="../../../src/boards/mcu/stm32/STM32L1xx_StdPeriph_Driver/src/stm32l1xx_gpio.c" type="1"/>
@@ -364,6 +367,7 @@
     <File name="boards/LoRaMote/cmsis/startup_stm32l1xx_md.s" path="../../../src/boards/LoRaMote/cmsis/arm-gcc/startup_stm32l1xx_md.s" type="1"/>
     <File name="boards/LoRaMote/uart-board.c" path="../../../src/boards/LoRaMote/uart-board.c" type="1"/>
     <File name="main.c" path="../../../src/apps/ping-pong/LoRaMote/main.c" type="1"/>
+    <File name="boards/LoRaMote/gps-board.c" path="../../../src/boards/LoRaMote/gps-board.c" type="1"/>
   </Files>
   <Bookmarks/>
 </Project>
