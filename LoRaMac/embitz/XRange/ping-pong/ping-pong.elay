@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<EmBitz_layout_file>
+	<ActiveTarget name="Release" />
+	<File name="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11668" topLine="270" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal_i2c.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="114580" topLine="3846" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\mcu\stm32\sysIrqHandlers.c" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="752" topLine="98" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\mcu\stm32\utilities.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1693" topLine="38" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\XRange\board.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10747" topLine="339" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\XRange\cmsis\arm-gcc\startup_stm32l1xx_mdp.S" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1800" topLine="47" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\XRange\rtc-board.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="379" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\boards\XRange\sx1272-board.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3307" topLine="75" />
+		</Cursor>
+	</File>
+	<File name="..\..\..\src\radio\sx1272\sx1272.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="13983" topLine="467" />
+		</Cursor>
+	</File>
+</EmBitz_layout_file>

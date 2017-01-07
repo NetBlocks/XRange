@@ -13,7 +13,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 Maintainer: Miguel Luis and Gregory Cristian
 */
 #include "board.h"
-//#include "adc-board.h"
+#include "adc-board.h"
 
 /*!
  * Flag to indicates if the ADC is initialized 

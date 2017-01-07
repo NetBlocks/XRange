@@ -105,8 +105,7 @@ static void MlmeConfirm( MlmeConfirm_t *mlmeConfirm )
         {
             case MLME_JOIN:
             {
-                 // Status is OK, node has joined the network
-                LoRaMacEventInfo.Status = mlmeConfirm->Status;
+                // Status is OK, node has joined the network
                 LoRaMacEventFlags.Bits.Tx = 1;
                 LoRaMacEventFlags.Bits.Rx = 1;
                 LoRaMacEventFlags.Bits.JoinAccept = 1;
@@ -126,6 +125,7 @@ static void MlmeConfirm( MlmeConfirm_t *mlmeConfirm )
                 break;
         }
     }
+    LoRaMacEventInfo.Status = mlmeConfirm->Status;
 
     if( LoRaMacFlags.Bits.McpsInd != 1 )
     {
@@ -340,7 +340,7 @@ uint8_t LoRaMacSendConfirmedFrame( uint8_t fPort, void *fBuffer, uint16_t fBuffe
     mcpsRequest.Req.Confirmed.fBuffer = fBuffer;
     mcpsRequest.Req.Confirmed.fBufferSize = fBufferSize;
     mcpsRequest.Req.Confirmed.fPort = fPort;
-    mcpsRequest.Req.Confirmed.nbRetries = nbRetries;
+    mcpsRequest.Req.Confirmed.NbTrials = nbRetries;
     mcpsRequest.Req.Confirmed.Datarate = mibGet.Param.ChannelsDatarate;
 
     switch( LoRaMacMcpsRequest( &mcpsRequest ) )
