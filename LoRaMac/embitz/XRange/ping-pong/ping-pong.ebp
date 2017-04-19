@@ -98,9 +98,9 @@
 		</Build>
 		<Device>
 			<Add option="$device=cortex-m3" />
+			<Add option="$lscript=../../../src/boards/XRange/cmsis/arm-gcc/STM32L151CC_FLASH.ld" />
 			<Add option="$stack=0x0100" />
 			<Add option="$heap=0x0000" />
-			<Add option="$lscript=./stm32l151cc_flash.ld" />
 		</Device>
 		<Compiler>
 			<Add option="-mfloat-abi=soft" />
@@ -112,10 +112,10 @@
 			<Add directory=".\cmsis" />
 		</Compiler>
 		<Linker>
-			<Add option="-eb_start_files" />
 			<Add option="-eb_lib=n" />
+			<Add option="-eb_start_files" />
 		</Linker>
-		<Unit filename="..\..\..\src\apps\ping-pong\Xrange\main.c">
+		<Unit filename="..\..\..\src\apps\ping-pong\XRange\main.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="..\..\..\src\boards\mcu\stm32\STM32L1xx_HAL_Driver\Src\stm32l1xx_hal.c">
@@ -178,8 +178,8 @@
 		<Unit filename="..\..\..\src\boards\XRange\board.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="..\..\..\src\boards\XRange\cmsis\arm-gcc\startup_stm32l1xx_mdp.S">
-			<Option compilerVar="CC" />
+		<Unit filename="..\..\..\src\boards\XRange\cmsis\arm-gcc\startup_stm32l151xc.s">
+			<Option compilerVar="ASM" />
 		</Unit>
 		<Unit filename="..\..\..\src\boards\XRange\cmsis\system_stm32l1xx.c">
 			<Option compilerVar="CC" />

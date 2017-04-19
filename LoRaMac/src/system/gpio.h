@@ -20,7 +20,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define __GPIO_H__
 
 #include "pinName-board.h"
-
+#include "pinName-ioe.h"
 
 /*!
  * Board GPIO pin names
@@ -96,12 +96,18 @@ typedef struct
     uint16_t pinIndex;
     void *port;
     uint16_t portIndex;
+    PinTypes pull;
 }Gpio_t;
 
 /*!
  * GPIO IRQ handler function prototype
  */
 typedef void( GpioIrqHandler )( void );
+
+/*!
+ * GPIO Expander IRQ handler function prototype
+ */
+typedef void( GpioIoeIrqHandler )( void );
 
 /*!
  * \brief Initializes the given GPIO object
@@ -112,7 +118,7 @@ typedef void( GpioIrqHandler )( void );
  *                              PIN_ALTERNATE_FCT, PIN_ANALOGIC]
  * \param [IN] config Pin config [PIN_PUSH_PULL, PIN_OPEN_DRAIN]
  * \param [IN] type   Pin type [PIN_NO_PULL, PIN_PULL_UP, PIN_PULL_DOWN]
- * \param [IN] value  Default output value at initialisation
+ * \param [IN] value  Default output value at initialization
  */
 void GpioInit( Gpio_t *obj, PinNames pin, PinModes mode, PinConfigs config, PinTypes type, uint32_t value );
 

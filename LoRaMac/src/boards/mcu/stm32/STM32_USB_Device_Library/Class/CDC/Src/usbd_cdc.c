@@ -661,6 +661,10 @@ static uint8_t  USBD_CDC_Setup (USBD_HandleTypeDef *pdev,
   * @param  epnum: endpoint number
   * @retval status
   */
+#ifdef USB_NON_BLOCKING
+extern volatile int bussy_count;
+#endif
+
 static uint8_t  USBD_CDC_DataIn (USBD_HandleTypeDef *pdev, uint8_t epnum)
 {
   USBD_CDC_HandleTypeDef   *hcdc = (USBD_CDC_HandleTypeDef*) pdev->pClassData;
@@ -669,7 +673,9 @@ static uint8_t  USBD_CDC_DataIn (USBD_HandleTypeDef *pdev, uint8_t epnum)
   {
     
     hcdc->TxState = 0;
-
+#ifdef USB_NON_BLOCKING		
+		bussy_count = 0;
+#endif
     return USBD_OK;
   }
   else

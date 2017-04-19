@@ -462,14 +462,14 @@
           <GroupName>boards\LoRaMote\cmsis</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32l1xx_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l1xx_md.s</FilePath>
-            </File>
-            <File>
               <FileName>system_stm32l1xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\boards\XRange\cmsis\system_stm32l1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32l151xc.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l151xc.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -1094,14 +1094,14 @@
           <GroupName>boards\LoRaMote\cmsis</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32l1xx_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l1xx_md.s</FilePath>
-            </File>
-            <File>
               <FileName>system_stm32l1xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\boards\XRange\cmsis\system_stm32l1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32l151xc.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l151xc.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -1726,14 +1726,14 @@
           <GroupName>boards\LoRaMote\cmsis</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32l1xx_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l1xx_md.s</FilePath>
-            </File>
-            <File>
               <FileName>system_stm32l1xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\boards\XRange\cmsis\system_stm32l1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32l151xc.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l151xc.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -2358,14 +2358,14 @@
           <GroupName>boards\LoRaMote\cmsis</GroupName>
           <Files>
             <File>
-              <FileName>startup_stm32l1xx_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l1xx_md.s</FilePath>
-            </File>
-            <File>
               <FileName>system_stm32l1xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\src\boards\XRange\cmsis\system_stm32l1xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32l151xc.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\..\src\boards\XRange\cmsis\arm-std\startup_stm32l151xc.s</FilePath>
             </File>
           </Files>
         </Group>
