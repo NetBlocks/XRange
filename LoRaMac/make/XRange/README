@@ -1,0 +1,31 @@
+Build the LoRa firmware under Linux
+
+Ubuntu 16.04:
+sudo apt-get install gcc-arm-none-eabi
+sudo apt-get install dfu-util
+
+Build the application:
+make  
+
+Install st-link:
+
+sudo apt-get install libusb-1.0-0-dev git cmake
+
+git clone https://github.com/texane/stlink stlink.git
+
+cd stlink.git
+
+make
+
+sudo cp build/Release/st-flash /usr/bin/
+sudo cp etc/udev/rules.d/49-stlinkv2.rules /etc/udev/rules.d/
+sudo  udevadm control --reload-rules
+sudo udevadm trigger
+
+Build Target:
+
+cd ping-pong
+make
+
+Load firmware in XRange
+make flash

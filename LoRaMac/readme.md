@@ -9,12 +9,6 @@ LoRaWAN endpoint stack implementation and example projects.
 ------------------------------------------------
 Modified by NetBlocks (www.netblocks.eu) for XRange platform
 www.netblocks.eu/xrange-sx1272-lora-datasheet/ 
-     _   _      _   ____  _            _        
-    | \ | | ___| |_| __ )| | ___   ___| | _____ 
-    |  \| |/ _ \ __|  _ \| |/ _ \ / __| |/ / __|
-    | |\  |  __/ |_| |_) | | (_) | (__|   <\__ \
-    |_| \_|\___|\__|____/|_|\___/ \___|_|\_\___/
-                                                
 
 
 1. Introduction
@@ -78,6 +72,27 @@ not of a bootloader and the radio frequency band to be used.
 
 6. Changelog
 -------------
+2017-04-19, V4.3.2
+
+* General (Last release based on LoRaWAN specification 1.0.1)
+    This version has passed EU868 and US915 LoRa-Alliance compliance tests.
+    GitHub reported issues corrections.
+    Added an algorithm to automatically compute the Rx windows parameters. (Window symbolTimeout and Offset from downlink expected time)
+    Added a workaround to reset the radio in case a TxTimeout occurs.
+    Modified FSK modem handling to use the provided symbolTimeout (1 symbol equals 1 byte) when in RxSingle mode.
+    Added newly defined TxCw(Tx Continuous Wave) certification protocol command.
+    Added a fix for an overflow issue that could happen with NmeaStringSize variable.
+    Improved GpioMcuInit function to first configure the output pin state before activating the pin.
+
+* LoRaWAN
+    GitHub reported issues corrections.
+    Changed the AdrAckCounter handling as expected by the test houses.
+    Fix an issue where the node stopped transmitting.
+    Removed useless LoRaMacPayload buffer.
+    MAC layer indications handling simplification.
+    Relocate parameter settings from ResetMacParameters to the initialization.
+
+2017-02-27, V4.3.1
 2017-02-27, V4.3.1
 * General
     1. This version has passed EU868 and US915 LoRa-Alliance compliance tests.
