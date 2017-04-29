@@ -36,19 +36,20 @@ static char vcom_buffer[VCOM_BUFF_SIZE];
 
 void vcom_Send(const char *format, ...)
 {
-	
-  va_list args;
-  uint8_t len = 0;
+	if (UartUsbIsUsbCableConnected())
+	{	
+		va_list args;
+		uint8_t len = 0;
 
-  va_start(args, format);
+		va_start(args, format);
 
-  len = tiny_vsnprintf_like(vcom_buffer, VCOM_BUFF_SIZE, format, args);
+		len = tiny_vsnprintf_like(vcom_buffer, VCOM_BUFF_SIZE, format, args);
 
-  UartUsbPutBuffer( &UartUsb , (uint8_t*)vcom_buffer , len );
+		UartUsbPutBuffer( &UartUsb , (uint8_t*)vcom_buffer , len );
 
 
-  va_end(args);
-
+		va_end(args);
+	}
 }
 #endif
 /******************* (C) COPYRIGHT 2011 STMicroelectronics *****END OF FILE****/

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include "board.h"
 #include "uart-usb-board.h"
-
+#include "usb-printf.h"
 
 bool UsbIsCharRecived(uint8_t *ch)
 {
@@ -46,7 +46,7 @@ bool USB_get_cmd_line( void )
         {
             if(cmd_line_count)
             {
-                printf("\b \b");
+                PRINTF("\b \b");
                 cmd_line_count--;
             }
 						return false;
@@ -80,7 +80,7 @@ bool USB_get_cmd_line( void )
 		
 		finished:
     cmd_line_buf[cmd_line_count] = 0;
-		printf("\r\n");
+		PRINTF("\r\n");
 		return true;
 
 }
@@ -98,7 +98,7 @@ bool check_hex_str_format(const char *str)
 			return true;
 	}
 	
-	printf("Bad hex string\r\n");
+	PRINTF("Bad hex string\r\n");
 	
 	return false;
 }
@@ -112,7 +112,7 @@ bool check_str_size(const char *str,uint8_t expected_size)
     return true;
 	}
 	
-	printf("Bad size the hex string size is %d must be %d\r\n",len , expected_size*2);
+	PRINTF("Bad size the hex string size is %d must be %d\r\n",len , expected_size*2);
 	return false;
 }
 

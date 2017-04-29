@@ -120,7 +120,6 @@ int Cmd_show(int argc, char *argv[])
 
 		eeprom_read(EEPROM_DEV_ADDR, val, DEV_ADDR_SIZE);
 		PrintValueReverse("Device Address: ",val ,DEV_ADDR_SIZE);
-	//	printf("\r\nDevice Address: %04X\r\n",GetAddress());
 
 		eeprom_read(EEPROM_NWKSKEY, val, NWKSKEY_SIZE);
 		PrintValues("Network Session Key: ",val ,NWKSKEY_SIZE);
