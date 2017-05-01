@@ -91,11 +91,11 @@ int Cmd_show(int argc, char *argv[])
 
 	if(GetActivationMethod() == ACTIVATION_METHOD_ABP)
 	{
-		PRINTF("Activation Method : ABP\r\n" );
+		PRINTF("\r\nActivation Method : ABP" );
 	}
 	else
 	{
-			PRINTF("Activation Method : OTAA\r\n" );
+			PRINTF("\r\nActivation Method : OTAA" );
 	}
 
 	if(GetActivationMethod() == ACTIVATION_METHOD_OTAA)
@@ -138,6 +138,7 @@ void CLI_PrintError()
 
 void CLI_SetPrintHelp()
 {
+    PRINTF("\n\r");
 	PRINTF("set activation otaa|abp\r\n");
 	PRINTF("set appeui Application EUI\r\n");
 	PRINTF("set appkey App Key\r\n");
@@ -173,11 +174,11 @@ int Cmd_set(int argc, char *argv[])
 		if(strcmp(argv[2],"otaa") ==0 )
 		{
 				SetActivationMethod(ACTIVATION_METHOD_OTAA);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 		}else if(strcmp(argv[2],"abp") ==0)
 		{
 				SetActivationMethod(ACTIVATION_METHOD_ABP);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 		}else
 		{
 				CLI_PrintError();
@@ -193,7 +194,7 @@ int Cmd_set(int argc, char *argv[])
 			if(convert_hex_to_array(var, APPLICATION_EUI_SIZE, argv[2]))
 			{
 				eeprom_write(EEPROM_APPLICATION_EUI_ADDR, var, APPLICATION_EUI_SIZE);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 				return 0;
 			}
 		}
@@ -205,7 +206,7 @@ int Cmd_set(int argc, char *argv[])
 			if(convert_hex_to_array(var, APPLICATION_KEY_SIZE, argv[2]))
 			{
 				eeprom_write(EEPROM_APPLICATION_KEY_ADDR, var, APPLICATION_KEY_SIZE);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 				return 0;
 			}
 		}
@@ -218,7 +219,7 @@ int Cmd_set(int argc, char *argv[])
 			if(convert_hex_to_array(var,NWKSKEY_SIZE, argv[2]))
 			{
 				eeprom_write(EEPROM_NWKSKEY, var, NWKSKEY_SIZE);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 				return 0;
 			}
 		}
@@ -230,7 +231,7 @@ int Cmd_set(int argc, char *argv[])
 			if(convert_hex_to_array(var ,APPSKEY_SIZE, argv[2]))
 			{
 				eeprom_write(EEPROM_APPSKEY, var, APPSKEY_SIZE);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 				return 0;
 			}
 		}
@@ -242,7 +243,7 @@ int Cmd_set(int argc, char *argv[])
 			{
 				addr[0]= var[3];	addr[1]= var[2];addr[2]= var[1];addr[3]= var[0];
 				eeprom_write(EEPROM_DEV_ADDR, addr, DEV_ADDR_SIZE);
-				PRINTF("Done\r\n");
+				PRINTF("\r\nDone\r\n");
 				return 0;
 			}
 		}
